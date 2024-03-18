@@ -2,6 +2,7 @@ package com.dao;
 
 import java.sql.*;
 import com.models.Career;
+import java.util.*;
 public class CareerQuery{
     public CareerQuery(){}
     public void insertCareer(Career career, Connection stablishConnection) throws SQLException{
@@ -26,14 +27,16 @@ public class CareerQuery{
         int careerDeleted = st.executeUpdate();
         System.out.println("Career deleted: " + careerDeleted);
     }
-    public void readCareer(Connection stablishConnection) throws SQLException{
+    public ArrayList readCareer(Connection stablishConnection) throws SQLException{
         String SQLQuery = "SELECT * FROM carreras";
         Statement st = stablishConnection.createStatement();
         ResultSet rs = st.executeQuery(SQLQuery);
+        ArrayList<String> careerList = new ArrayList<String>();
         while (rs.next()) {
             String nameOfCareer = rs.getString("nombre");
-            System.out.println(nameOfCareer + "\n");
+            careerList.add(nameOfCareer);
         }
+        return careerList;
     }
     public void seeStudentsFromCareer(Career career, Connection stablishConnection) throws SQLException{
         String SQLQuery = "SELECT a.nombre, a.DNI, c.nombre AS carrera FROM alumnos a " + 

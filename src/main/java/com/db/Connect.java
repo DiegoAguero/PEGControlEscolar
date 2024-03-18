@@ -11,15 +11,13 @@ public class Connect {
     public static Connection getConnection() throws SQLException{
         Connection connection = null;
         try {
-            Properties props = new Properties();
-            props.load(new FileInputStream("config/db.properties"));
-            String URL = props.getProperty("jdbc:mysql://localhost/escuela");
-            String DRIVER = props.getProperty("com.mysql.cj.jdbc.Driver");
-            String USER = props.getProperty("ROOT");
-            String PASSWORD = props.getProperty("123456");
+            String URL ="jdbc:mysql://localhost/escuela";
+            String DRIVER ="com.mysql.cj.jdbc.Driver";
+            String USER = "ROOT";
+            String PASSWORD = "123456";
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (ClassNotFoundException | IOException ex) {
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
         }
         return connection;
