@@ -27,14 +27,16 @@ public class CareerQuery{
         int careerDeleted = st.executeUpdate();
         System.out.println("Career deleted: " + careerDeleted);
     }
-    public ArrayList readCareer(Connection stablishConnection) throws SQLException{
+    public ArrayList getAllCareers(Connection stablishConnection) throws SQLException{
         String SQLQuery = "SELECT * FROM carreras";
         Statement st = stablishConnection.createStatement();
         ResultSet rs = st.executeQuery(SQLQuery);
-        ArrayList<String> careerList = new ArrayList<String>();
+        ArrayList<String> careerList = new ArrayList<>();
         while (rs.next()) {
             String nameOfCareer = rs.getString("nombre");
-            careerList.add(nameOfCareer);
+            if(nameOfCareer != null){
+                careerList.add(nameOfCareer);   
+            }
         }
         return careerList;
     }
