@@ -1,9 +1,6 @@
 package com.db;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.*;
-import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Connect {
@@ -11,12 +8,13 @@ public class Connect {
     public static Connection getConnection() throws SQLException{
         Connection connection = null;
         try {
-            String URL ="jdbc:mysql://localhost/escuela";
+            String URL ="jdbc:mysql://localhost/escuela?autoReconnect=true&useSSL=false";
             String DRIVER ="com.mysql.cj.jdbc.Driver";
-            String USER = "ROOT";
+            String USER = "root";
             String PASSWORD = "123456";
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("User logged to database");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
         }
