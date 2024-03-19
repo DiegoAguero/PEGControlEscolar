@@ -31,11 +31,16 @@ public class CareerQuery{
         String SQLQuery = "SELECT * FROM carreras";
         Statement st = stablishConnection.createStatement();
         ResultSet rs = st.executeQuery(SQLQuery);
-        ArrayList<String> careerList = new ArrayList<>();
+        ArrayList<Career> careerList = new ArrayList<>();
+        Career[] career = new Career[100];
+        short counter = 0;
         while (rs.next()) {
             String nameOfCareer = rs.getString("nombre");
+            int id = rs.getInt("id");
             if(nameOfCareer != null){
-                careerList.add(nameOfCareer);   
+                career[counter] = new Career(id, nameOfCareer);
+                careerList.add(career[counter]);
+                counter++;
             }
         }
         return careerList;
