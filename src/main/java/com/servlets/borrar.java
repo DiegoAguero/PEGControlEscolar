@@ -43,8 +43,15 @@ public class borrar extends HttpServlet {
             Connection connection = Connect.getConnection();
             ArrayList <Career> careerList = careerQuery.getAllCareers(connection);
             String idCareer = request.getParameter("id");
-            careerList.get(Integer.valueOf(idCareer));
-            request.setAttribute("carrera", careerList);
+//            Career careerToDelete = careerList.get(Integer.valueOf(idCareer));
+            Career careerToDelete = null;
+            for(int i = 0; i < careerList.size(); i ++){
+                Career career = careerList.get(i);
+                if(career.getId() == Integer.parseInt(idCareer)){
+                    careerToDelete = career;
+                }
+            }
+            request.setAttribute("carrera", careerToDelete);
             rd.forward(request, response);
 
         }catch(SQLException e){
@@ -81,6 +88,17 @@ public class borrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String id = request.getParameter("id");
+        CareerQuery careerQuery = new CareerQuery();
+        try {
+            Connection connection = Connect.getConnection();
+            Career careerToDelete = careerQuery.getCareerById(Integer.parseInt(id), connection);
+            int careerDeleted = careerQuery.deleteCareer(careerToDelete, connection);
+            System.out.println(id);
+            //Debuggear esto y ver pq no elimina de la base de datos
+        } catch (SQLException e) {
+            e.getMessage();
+        }
         processRequest(request, response);
     }
 

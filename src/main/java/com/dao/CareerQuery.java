@@ -20,12 +20,13 @@ public class CareerQuery{
        int rowsInserted = st.executeUpdate();
        System.out.println("Rows updated: " + rowsInserted);
     }
-    public void deleteCareer(Career career, Connection stablishConnection) throws SQLException{
-        String SQLQuery = "DELETE FROM carreras WHERE nombre = ?";
+    public int deleteCareer(Career career, Connection stablishConnection) throws SQLException{
+        String SQLQuery = "DELETE FROM carreras WHERE id = ?";
         PreparedStatement st = stablishConnection.prepareStatement(SQLQuery);
         st.setString(1, career.getName());
         int careerDeleted = st.executeUpdate();
-        System.out.println("Career deleted: " + careerDeleted);
+//        System.out.println("Career deleted: " + careerDeleted);
+        return careerDeleted;
     }
     public ArrayList getAllCareers(Connection stablishConnection) throws SQLException{
         String SQLQuery = "SELECT * FROM carreras";
@@ -44,6 +45,19 @@ public class CareerQuery{
             }
         }
         return careerList;
+    }
+    public Career getCareerById(int id, Connection stablishConnection) throws SQLException{
+        String SQLQuery = "SELECT * FROM carreras where id ?";
+        PreparedStatement st = stablishConnection.prepareStatement(SQLQuery);
+        st.setInt(1, id);
+        ResultSet rs = st.executeQuery();
+        Career career = null;
+        while(rs.next()){
+            String nameOfCareer = rs.getString("nombre");
+            int idCareer = rs.getInt("id");
+            career = new Career(idCareer, nameOfCareer);
+        }
+        return career;
     }
     public void seeStudentsFromCareer(Career career, Connection stablishConnection) throws SQLException{
         String SQLQuery = "SELECT a.nombre, a.DNI, c.nombre AS carrera FROM alumnos a " + 

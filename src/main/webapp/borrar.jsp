@@ -15,9 +15,9 @@
     </head>
     <body>
         <form action="./borrar" method="POST"> 
-            <c:forEach items="${carrera}" var="carrera">
+                <h1>${carrera.name}</h1>
+                <input type="hidden" name="id" value="${carrera.id}" />
                 <input type="submit" value="Confirmar"/>
-            </c:forEach>
         </form>
     </body>
 </html>
