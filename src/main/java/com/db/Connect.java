@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Connect {
     public Connect(){}
-    public static Connection getConnection() throws SQLException{
+    public static Connection getConnection() throws SQLException {
         Connection connection = null;
         try {
             String URL ="jdbc:mysql://localhost/escuela?autoReconnect=true&useSSL=false";
