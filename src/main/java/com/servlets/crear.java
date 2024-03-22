@@ -59,17 +59,7 @@ public class crear extends HttpServlet {
             Connection c = Connect.getConnection();
             CareerQuery q = new CareerQuery();
             q.insertCareer(new Career(name), c);
-            try (PrintWriter out = response.getWriter()) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Añadido</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Se añadio la carrera: " + name + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
-            }
+            response.sendRedirect("./lista");
         } catch (SQLException ex) {
             Logger.getLogger(crear.class.getName()).log(Level.SEVERE, null, ex);
         }
