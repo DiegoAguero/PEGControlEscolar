@@ -23,9 +23,10 @@ public class CareerQuery{
     public int deleteCareer(Career career, Connection stablishConnection) throws SQLException{
         String SQLQuery = "DELETE FROM carreras WHERE id = ?";
         PreparedStatement st = stablishConnection.prepareStatement(SQLQuery);
-        st.setString(1, career.getName());
+        st.setInt(1, career.getId());
+        System.out.println(career.getId());
         int careerDeleted = st.executeUpdate();
-//        System.out.println("Career deleted: " + careerDeleted);
+        System.out.println("Career deleted: " + careerDeleted);
         return careerDeleted;
     }
     public ArrayList getAllCareers(Connection stablishConnection) throws SQLException{
@@ -47,7 +48,7 @@ public class CareerQuery{
         return careerList;
     }
     public Career getCareerById(int id, Connection stablishConnection) throws SQLException{
-        String SQLQuery = "SELECT * FROM carreras where id ?";
+        String SQLQuery = "SELECT * FROM carreras where id = ?";
         PreparedStatement st = stablishConnection.prepareStatement(SQLQuery);
         st.setInt(1, id);
         ResultSet rs = st.executeQuery();

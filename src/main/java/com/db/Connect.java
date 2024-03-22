@@ -14,7 +14,6 @@ public class Connect {
             String PASSWORD = "123456";
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("User logged to database");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Connect.class.getName()).log(Level.SEVERE, null, ex);
         }

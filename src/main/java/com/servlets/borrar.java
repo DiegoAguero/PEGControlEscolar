@@ -35,30 +35,6 @@ public class borrar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        CareerQuery careerQuery = new CareerQuery();
-        RequestDispatcher rd = request.getRequestDispatcher("borrar.jsp");
-
-        try{
-            Connection connection = Connect.getConnection();
-            ArrayList <Career> careerList = careerQuery.getAllCareers(connection);
-            String idCareer = request.getParameter("id");
-//            Career careerToDelete = careerList.get(Integer.valueOf(idCareer));
-            Career careerToDelete = null;
-            for(int i = 0; i < careerList.size(); i ++){
-                Career career = careerList.get(i);
-                if(career.getId() == Integer.parseInt(idCareer)){
-                    careerToDelete = career;
-                }
-            }
-            request.setAttribute("carrera", careerToDelete);
-            rd.forward(request, response);
-
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-        
-
 
     }
 
@@ -74,7 +50,25 @@ public class borrar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        CareerQuery careerQuery = new CareerQuery();
+        RequestDispatcher rd = request.getRequestDispatcher("borrar.jsp");
+        try{
+            Connection connection = Connect.getConnection();
+            ArrayList <Career> careerList = careerQuery.getAllCareers(connection);
+            String idCareer = request.getParameter("id");
+            Career careerToDelete = null;
+            for(int i = 0; i < careerList.size(); i ++){
+                Career career = careerList.get(i);
+                if(career.getId() == Integer.parseInt(idCareer)){
+                    careerToDelete = career;
+                }
+            }
+            request.setAttribute("carrera", careerToDelete);
+            rd.forward(request, response);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -90,16 +84,19 @@ public class borrar extends HttpServlet {
             throws ServletException, IOException {
         String id = request.getParameter("id");
         CareerQuery careerQuery = new CareerQuery();
-        try {
-            Connection connection = Connect.getConnection();
-            Career careerToDelete = careerQuery.getCareerById(Integer.parseInt(id), connection);
-            int careerDeleted = careerQuery.deleteCareer(careerToDelete, connection);
-            System.out.println(id);
-            //Debuggear esto y ver pq no elimina de la base de datos
-        } catch (SQLException e) {
-            e.getMessage();
+        if(id != null){
+            try {
+                Connection connection = Connect.getConnection();
+                Career careerToDelete = careerQuery.getCareerById(Integer.parseInt(id), connection);
+                int careerDeleted = careerQuery.deleteCareer(careerToDelete, connection);
+                response.sendRedirect("./lista");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        processRequest(request, response);
+    }
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     }
 
     /**

@@ -41,7 +41,6 @@ public class lista extends HttpServlet {
         RequestDispatcher rd = request.getRequestDispatcher("lista.jsp");
         try{
             Connection connection = Connect.getConnection();
-            System.out.println("HOLA");
             ArrayList <Career> careerList = careerQuery.getAllCareers(connection);
             request.setAttribute("carrera", careerList);
         }catch(SQLException e){
