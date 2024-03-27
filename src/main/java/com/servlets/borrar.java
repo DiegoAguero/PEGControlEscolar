@@ -81,7 +81,6 @@ public class borrar extends HttpServlet {
             try {
                 Connection connection = Connect.getConnection();
                 Career careerToDelete = careerQuery.getCareerById(Integer.parseInt(id), connection);
-                
                 int careerDeleted = careerQuery.deleteCareer(careerToDelete, connection);
                 response.sendRedirect("./lista");   
             } catch (SQLException e) {

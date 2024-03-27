@@ -36,17 +36,6 @@ public class lista extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        CareerQuery careerQuery = new CareerQuery();
-        RequestDispatcher rd = request.getRequestDispatcher("lista.jsp");
-        try{
-            Connection connection = Connect.getConnection();
-            ArrayList <Career> careerList = careerQuery.getAllCareers(connection);
-            request.setAttribute("carrera", careerList);
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -62,6 +51,17 @@ public class lista extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        CareerQuery careerQuery = new CareerQuery();
+        RequestDispatcher rd = request.getRequestDispatcher("lista.jsp");
+        try{
+            Connection connection = Connect.getConnection();
+            ArrayList <Career> careerList = careerQuery.getAllCareers(connection);
+            request.setAttribute("carrera", careerList);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        rd.forward(request, response);
     }
 
     /**

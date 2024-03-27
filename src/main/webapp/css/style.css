@@ -18,6 +18,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .careerList > li > a{
     float: right;
+    text-decoration: none;
+    color: black;
+    margin: 5px;
+}
+.careerList > li > a:hover{
+    color: red;
+}
+.indexNav{
+    list-style: none;
+}
+.indexNav > li{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
+}
+.indexNav > li > a{
+    text-decoration: none;
+    color: black;
 }
 
 
