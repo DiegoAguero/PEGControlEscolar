@@ -4,7 +4,7 @@
  */
 package com.servlets;
 
-import com.models.Career;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,17 +12,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.*;
-import com.dao.CareerQuery;
-import com.db.Connect;
-import jakarta.servlet.RequestDispatcher;
-import java.sql.*;
+
 /**
  *
  * @author Mati
  */
-@WebServlet(name = "borrar", urlPatterns = {"/borrar"})
-public class borrar extends HttpServlet {
+@WebServlet(name = "home", urlPatterns = {"/home"})
+public class home extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,7 +31,11 @@ public class borrar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,18 +50,7 @@ public class borrar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        CareerQuery careerQuery = new CareerQuery();
-        RequestDispatcher rd = request.getRequestDispatcher("borrar.jsp");
-        try{
-            Connection connection = Connect.getConnection();
-            String idCareer = request.getParameter("id");
-            Career careerToDelete = careerQuery.getCareerById(Integer.parseInt(idCareer), connection);
-            request.setAttribute("carrera", careerToDelete);
-            rd.forward(request, response);
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -75,19 +64,7 @@ public class borrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        CareerQuery careerQuery = new CareerQuery();
-        if(id != null){
-            try {
-                Connection connection = Connect.getConnection();
-                Career careerToDelete = careerQuery.getCareerById(Integer.parseInt(id), connection);
-                
-                int careerDeleted = careerQuery.deleteCareer(careerToDelete, connection);
-                response.sendRedirect("./lista");   
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        processRequest(request, response);
     }
 
     /**

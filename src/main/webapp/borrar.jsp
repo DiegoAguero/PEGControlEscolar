@@ -17,6 +17,7 @@
         <form action="./borrar" method="POST"> 
                 <h1>${carrera.name}</h1>
                 <input type="hidden" name="id" value="${carrera.id}" />
+                <input disabled placeholder="${carrera.name}"/>
                 <input type="submit" value="Confirmar"/>
         </form>
     </body>
