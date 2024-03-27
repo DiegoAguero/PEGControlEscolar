@@ -19,7 +19,10 @@
         <h1>Listas de carreras</h1>
         <ul class="careerList">
             <c:forEach items="${carrera}" var="carrera">
-                <li>${carrera.name} <a href="./borrar?id=${carrera.id}" target="_blank">Eliminar</a></li>
+                <li>${carrera.name} 
+                    <a href="./modificar?id=${carrera.id}" target="_blank">Modificar</a>
+                    <a href="./borrar?id=${carrera.id}" target="_blank">Eliminar</a>
+                </li>
             </c:forEach>
         </ul>
     </body>

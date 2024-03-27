@@ -12,11 +12,11 @@ public class CareerQuery{
         int rowsInserted = st.executeUpdate();
         return rowsInserted;
     }
-    public int updateCareer(String oldName, Career career, Connection stablishConnection) throws SQLException{
-       String SQLQuery = "UPDATE carreras SET nombre = ? WHERE nombre = ?";
+    public int updateCareer(int id, Career career, Connection stablishConnection) throws SQLException{
+       String SQLQuery = "UPDATE carreras SET nombre = ? WHERE id = ?";
        PreparedStatement st = stablishConnection.prepareStatement(SQLQuery);
        st.setString(1, career.getName());
-       st.setString(2, oldName);
+       st.setInt(2, id);
        int rowsUpdated = st.executeUpdate();
        return rowsUpdated;
     }
