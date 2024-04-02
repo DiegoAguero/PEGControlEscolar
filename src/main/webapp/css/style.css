@@ -53,6 +53,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: #5c5470; 
 }
 
+.aligncenter {
+ text-align: center;    
+}
+
 .careerList{
     list-style: none;
 }
@@ -74,6 +78,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     color: red;
 }
 .indexNav{
+    padding: initial;
     list-style: none;
     display: flex;
     justify-content: center;

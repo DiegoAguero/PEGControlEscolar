@@ -15,7 +15,7 @@
     <body class="first-color">
         <form action="./modificar" method="post" class="form">
             <input type="hidden" name="id" value="${carrera.id}" />
-            <input type="text" name ="name"  placeholder="${carrera.name}" class="deleteInput"/>
+            <input type="text" name ="name"  value="${carrera.name}" class="deleteInput"/>
             <input type="submit" value="Modificar" class="createButton"/>
         </form>
     </body>
