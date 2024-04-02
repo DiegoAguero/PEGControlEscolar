@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="./css/style.css"/>
     </head>
     <body class="first-color">
-        <h1 class="second-color">Carreras</h1>
+        <h1 class="second-color aligncenter">Carreras</h1>
         <ul class="indexNav">
             <li><a href="./crear">Crear</a></li>
             <li><a href="./lista">Listar</a></li>
