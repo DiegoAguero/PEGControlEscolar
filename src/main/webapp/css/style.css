@@ -78,6 +78,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: initial;
 }
 .indexNav > li{
     border: 1px solid #352f44;
