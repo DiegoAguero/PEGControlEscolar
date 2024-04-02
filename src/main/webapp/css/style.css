@@ -6,7 +6,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : 19 mar 2024, 11:07:53
     Author     : Mati
 */
-
+.deleteInput{
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+}
+.deleteButton{
+    display: block;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 10px;
+}
+.deleteButton:hover{
+    background: rgb(168, 95, 95);
+    color: black;
+}
+.form{
+    text-align: center;
+}
 .careerList{
     list-style: none;
 }
@@ -27,6 +48,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .indexNav{
     list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .indexNav > li{
     border: 1px solid black;

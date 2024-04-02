@@ -11,14 +11,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./css/style.css"/>
         <title>Borrar</title>
     </head>
     <body>
-        <form action="./borrar" method="POST"> 
-                <h1>${carrera.name}</h1>
+        <form action="./borrar" method="POST" class="form"> 
                 <input type="hidden" name="id" value="${carrera.id}" />
-                <input disabled placeholder="${carrera.name}"/>
-                <input type="submit" value="Confirmar"/>
+                <input disabled placeholder="Desea eliminar ${carrera.name}?" class="deleteInput"/>
+                <input type="submit" value="Confirmar" class="deleteButton"/>
         </form>
     </body>
 </html>
