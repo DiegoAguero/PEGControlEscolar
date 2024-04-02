@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="./css/style.css"/>
         <title>Borrar</title>
     </head>
-    <body>
+
+    <body class="first-color">
         <form action="./borrar" method="POST" class="form"> 
                 <input type="hidden" name="id" value="${carrera.id}" />
                 <input disabled placeholder="Desea eliminar ${carrera.name}?" class="deleteInput"/>

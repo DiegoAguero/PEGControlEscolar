@@ -15,8 +15,8 @@
         <link rel="stylesheet" href="./css/style.css"/>
 
     </head>
-    <body>
-        <h1>Listas de carreras</h1>
+    <body class="first-color">
+        <h1 class="second-color">Listas de carreras</h1>
         <ul class="careerList">
             <c:forEach items="${carrera}" var="carrera">
                 <li>${carrera.name} 

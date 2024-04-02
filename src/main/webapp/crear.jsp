@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="./css/style.css"/>
         <title>Crear carrera</title>
     </head>
-    <body>
+    <body class="first-color">
         <form action="./crear" method="post">
             <input type="text" name ="name"/>
             <input type="submit" title="Crear"/>
