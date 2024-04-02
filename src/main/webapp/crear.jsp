@@ -13,9 +13,9 @@
         <title>Crear carrera</title>
     </head>
     <body class="first-color">
-        <form action="./crear" method="post">
-            <input type="text" name ="name"/>
-            <input type="submit" title="Crear"/>
+        <form action="./crear" method="post" class="form">
+            <input type="text" name ="name" class="deleteInput"/>
+            <input type="submit" title="Crear" class="createButton"/>
         </form>
     </body>
 </html>

@@ -16,7 +16,7 @@
         <form action="./modificar" method="post" class="form">
             <input type="hidden" name="id" value="${carrera.id}" />
             <input type="text" name ="name"  value="${carrera.name}" class="deleteInput"/>
-            <input type="submit" value="Modificar" class="deleteButton"/>
+            <input type="submit" value="Modificar" class="createButton"/>
         </form>
     </body>
 </html>

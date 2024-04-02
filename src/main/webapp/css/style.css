@@ -11,7 +11,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border: none;
     padding: 10px;
     margin: 5px;
+    background-color: #5c5470;
     width: 250px;
+}
+::placeholder{
+    color: whitesmoke;
 }
 .deleteButton{
     display: block;
@@ -20,6 +24,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     cursor: pointer;
     margin: 0 auto;
     padding: 10px;
+}
+.createButton{
+    display: block;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 10px;
+}
+.createButton:hover{
+    background-color: #352f44;
+    color: whitesmoke;
 }
 .deleteButton:hover{
     background: rgb(168, 95, 95);
