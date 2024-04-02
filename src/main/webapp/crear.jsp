@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Crear carrera</title>
     </head>
-    <body>
+    <body class="first-color">
         <form action="./crear" method="post">
             <input type="text" name ="name"/>
             <input type="submit" title="Crear"/>

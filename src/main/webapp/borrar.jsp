@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Borrar</title>
     </head>
-    <body>
+    <body class="first-color">
         <form action="./borrar" method="POST"> 
                 <h1>${carrera.name}</h1>
                 <input type="hidden" name="id" value="${carrera.id}" />

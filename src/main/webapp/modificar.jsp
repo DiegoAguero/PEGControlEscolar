@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modificar carrera</title>
     </head>
-    <body>
+    <body class="first-color">
         <form action="./modificar" method="post">
             <input type="hidden" name="id" value="${carrera.id}" />
             <input type="text" name ="name"  placeholder="${carrera.name}"/>

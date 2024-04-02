@@ -7,11 +7,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : Mati
 */
 
+.first-color { 
+    background: #dbd8e3; 
+}
+	
+.second-color { 
+    color: #5c5470; 
+}
+
 .careerList{
     list-style: none;
 }
 .careerList > li{
-    border: 1px solid black;
+    border: 1px solid #352f44;
+    background-color: #5c5470;
+    color: whitesmoke;    
     padding: 10px;
     margin: 5px;
     width: 500px;
@@ -19,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .careerList > li > a{
     float: right;
     text-decoration: none;
-    color: black;
+    color: whitesmoke;    
     margin: 5px;
 }
 .careerList > li > a:hover{
@@ -29,7 +39,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     list-style: none;
 }
 .indexNav > li{
-    border: 1px solid black;
+    border: 1px solid #352f44;
+    background-color: #5c5470;
     padding: 10px;
     margin: 5px;
     width: 100px;
@@ -37,7 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 .indexNav > li > a{
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
 }
 
 
